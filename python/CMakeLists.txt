@@ -179,7 +179,7 @@ add_custom_command(
         ${f90wrap_output_files} 
         -I${CMAKE_BINARY_DIR}/build/modules/vmec
 		--verbose
-        ${CMAKE_BINARY_DIR}/build/lib/libvmec.a  
+        ${CMAKE_CURRENT_BINARY_DIR}/../build/lib/libvmec.a  
         ${VMEC_LINK_LIB}
     #IMPLICIT_DEPENDS Fortran ${f90wrap_output_files}
     DEPENDS vmec ${f90wrap_output_files}
