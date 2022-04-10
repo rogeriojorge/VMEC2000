@@ -13,6 +13,10 @@ find_package(F90Wrap REQUIRED)
 #	set(CMAKE_INSTALL_RPATH $ORIGIN)
 #endif()
 
+if(NOT DEFINED VMEC_PYTHON_DIR)
+    set(VMEC_PYTHON_DIR python/vmec)
+endif()
+
 # Fortran preprocessing compiler 
 if(CMAKE_Fortran_COMPILER_ID STREQUAL Intel)
 	set(FPP_COMPILER fpp)
@@ -191,7 +195,7 @@ add_custom_command(
 python_extension_module(${generated_module_file})
 
 install(FILES ${python_mod_file} ${generated_module_file} #${CMAKE_CURRENT_SOURCE_DIR}/__init__.py
-        DESTINATION python/vmec
+        DESTINATION ${VMEC_PYTHON_DIR}
 )
 install(TARGETS xvmec vmec)
 #        LIBRARY DESTINATION ${CMAKE_INSTALL_DIR}/.
